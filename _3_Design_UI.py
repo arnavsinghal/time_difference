@@ -2,14 +2,19 @@ import streamlit as st
 from datetime import datetime
 
 # Define the two times as strings
-time1_str = "17:34:06"
-time2_str = "12:50:05"
+ 
 
 # Specify the time format
 time_format = "%H:%M:%S"
 
 time1_str = st.text_input("please put later time here like 17:34:06")
 time2_str = st.text_input("please put earlier time here like 12:50:05")
+
+time1_str = time1_str.replace(".",":")
+time2_str = time1_str.replace(".",":")
+
+time1_str = time1_str.replace("-",":")
+time2_str = time1_str.replace("-",":")
 
 submit = st.button("Compute Difference")
 if submit:
@@ -22,4 +27,3 @@ if submit:
 
     # Print the result
     st.write("Time difference:", time_difference)
-
